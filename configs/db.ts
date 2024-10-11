@@ -5,7 +5,8 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { VocabulariesEntity } from 'src/entities/vocabularies.entity';
 import { ChapterEntity } from 'src/entities/chapter.entity';
 
-config();
+const envFilePath = process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env';
+config({ path: envFilePath });
 export const dataSourceOptions: TypeOrmModuleOptions = {
     type: 'mysql',
     host: process.env.DB_HOST,

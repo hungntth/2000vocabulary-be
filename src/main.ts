@@ -7,7 +7,8 @@ import helmet from 'helmet';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  config();
+  const envFilePath = process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env';
+  config({ path: envFilePath });
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: {

@@ -12,7 +12,7 @@ import { FilesModule } from './modules/file.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env',
       isGlobal: true,
       load: [configuration],
     }),
@@ -32,4 +32,4 @@ import { FilesModule } from './modules/file.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

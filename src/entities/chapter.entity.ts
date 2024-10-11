@@ -9,10 +9,10 @@ export class ChapterEntity {
   @Column()
   title: string;
 
-  @Column()
+  @Column({ default: null })
   slug: string;
 
-  @Column()
+  @Column({ default: null })
   image: string;
 
   @Column()

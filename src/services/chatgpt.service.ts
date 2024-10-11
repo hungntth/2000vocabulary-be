@@ -10,7 +10,7 @@ export class OpenAIService {
       apiKey: process.env.API_KEY_OPEN_AI,
     });
 
-    const speechFile = join(`./mp3/${vocabulary}.mp3`);
+    const speechFile = join(`./public/mp3/${vocabulary}.mp3`);
     const mp3 = await openai.audio.speech.create({
       model: 'tts-1',
       voice: 'alloy',
