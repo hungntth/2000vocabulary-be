@@ -6,19 +6,19 @@ import { ExcelService } from 'src/services/excel.service';
 
 @Controller('excel')
 export class ExcelController {
-    constructor(private readonly excelService: ExcelService) { }
+  constructor(private readonly excelService: ExcelService) {}
 
-    @Get('download')
-    async downloadExcel(@Res() res: Response) {
-        await this.excelService.generateExcel(res);
-    }
+  @Get('download')
+  async downloadExcel(@Res() res: Response) {
+    await this.excelService.generateExcel(res);
+  }
 
-    @Post('upload')
-    @UseInterceptors(CustomFileInterceptor())
-    async uploadExcel(
-        @CustomUploadFile()
-        file: Express.Multer.File,
-    ) {
-        return await this.excelService.readFile(file);
-    }
+  @Post('upload')
+  @UseInterceptors(CustomFileInterceptor())
+  async uploadExcel(
+    @CustomUploadFile()
+    file: Express.Multer.File,
+  ) {
+    return await this.excelService.readFile(file);
+  }
 }

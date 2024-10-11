@@ -14,3 +14,16 @@ export function CustomUploadFile() {
 
   return UploadedFile(parseFilePipe);
 }
+
+export function CustomUploadImage() {
+  const parseFilePipe = new ParseFilePipeBuilder()
+    .addFileTypeValidator({
+      fileType: 'image/jpeg',
+    })
+    .addMaxSizeValidator({ maxSize: 1000 * 1000 })
+    .build({
+      errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+    });
+
+  return UploadedFile(parseFilePipe);
+}

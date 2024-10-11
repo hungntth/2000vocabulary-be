@@ -3,18 +3,27 @@ import { VocabulariesEntity } from './vocabularies.entity';
 
 @Entity()
 export class ChapterEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title: string;
+  @Column()
+  title: string;
 
-    @Column()
-    description: string;
+  @Column()
+  slug: string;
 
-    @OneToMany(() => VocabulariesEntity, (vocabularyGroup) => vocabularyGroup.chapter)
-    vocabularies: VocabulariesEntity[];
+  @Column()
+  image: string;
 
-    @Column({ default: true })
-    isActive: boolean;
+  @Column()
+  description: string;
+
+  @OneToMany(
+    () => VocabulariesEntity,
+    (vocabularyGroup) => vocabularyGroup.chapter,
+  )
+  vocabularies: VocabulariesEntity[];
+
+  @Column({ default: true })
+  isActive: boolean;
 }

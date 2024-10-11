@@ -3,6 +3,8 @@
 /node_modules
 /build
 /views
+/upload
+/public
 2000vocabulary-be.zip
 
 # Logs

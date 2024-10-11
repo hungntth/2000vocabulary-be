@@ -3,21 +3,18 @@ import { ChapterEntity } from './chapter.entity';
 
 @Entity()
 export class VocabulariesEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title: string;
+  @Column()
+  title: string;
 
-    @Column()
-    sub: string;
+  @Column()
+  sub: string;
 
-    @Column()
-    sound: string;
+  @ManyToOne(() => ChapterEntity, (chapter) => chapter.vocabularies)
+  chapter: ChapterEntity;
 
-    @ManyToOne(() => ChapterEntity, (chapter) => chapter.vocabularies)
-    chapter: ChapterEntity;
-
-    @Column({ default: true })
-    isActive: boolean;
+  @Column({ default: true })
+  isActive: boolean;
 }

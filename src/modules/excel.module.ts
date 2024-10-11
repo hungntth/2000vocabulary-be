@@ -13,5 +13,6 @@ import { ExcelService } from 'src/services/excel.service';
   ],
   controllers: [ExcelController],
   providers: [ExcelService],
+  exports: [ExcelService],
 })
 export class ExcelModule {}
